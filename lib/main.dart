@@ -39,20 +39,37 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: DropdownButton(
-            value: _currentCity,
-            items: _dropDownMenuItems,
-            onChanged: (String selectedCity) {
-              print("Selected city $selectedCity, we are going to refresh the UI");
-              setState(() {
-                _currentCity = selectedCity;
-              });
-            },
-          ),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text("Please choose your city: "),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            DropdownButton(
+              value: _currentCity,
+              items: _dropDownMenuItems,
+              onChanged: (String selectedCity) {
+                print(
+                    "Selected city $selectedCity, we are going to refresh the UI");
+                setState(() {
+                  _currentCity = selectedCity;
+                });
+              },
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog();
+        });
   }
 }
