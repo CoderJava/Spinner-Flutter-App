@@ -64,12 +64,4 @@ class _SettingsWidgetState extends State<SettingsWidget> {
       ),
     );
   }
-
-  void _showDialog() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog();
-        });
-  }
 }
